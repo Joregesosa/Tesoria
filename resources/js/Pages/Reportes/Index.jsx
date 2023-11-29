@@ -14,18 +14,17 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
   const solicitudes = auth.user.solicitudes.filter(solicitud => solicitud.tipo_id > 2);
 
 
-  const documentos = [];
-  solicitudes.forEach((solicitud) => {
+  const documentos = auth.user.solicitudes.flatMap((solicitud) => {
     if (solicitud.files && solicitud.files.length > 0) {
-      solicitud.files.forEach((documento) => {
-        const soli = solicitud;
+      return solicitud.files.map((documento) => {
+        const soli = { ...solicitud };
         delete soli.files;
         documento.solicitud = soli;
-        documentos.push(documento);
+        return documento;
       });
     }
+    return [];
   });
-
   
   const [documentos_f, setDocumentos_f] = useState(documentos);
   const [solicitudes_f, setSolicitudes_f] = useState(solicitudes);
@@ -44,14 +43,16 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
   });
 
   useEffect(() => {
-
+    console.log(documentos)
     filterDataByDate()
+    
   }, [datos])
 
   const filterDataByDate = () => {
 
     const inicio = new Date(datos.inicio + ' 00:00:00');
     const fin = new Date(datos.fin + ' 23:59:59');
+    console.log(inicio,fin)
 
 
     const solicitudes_filtradas = solicitudes.filter((soli) => {
@@ -77,10 +78,15 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
       return true;
     });
+    
 
     const documentos_filtrados = documentos.filter((documento) => {
+     
 
       const fechaCreacion = new Date(documento.created_at);
+      console.log({"creacion":fechaCreacion,inicio,"minimo":fechaCreacion > inicio,"fin":fin,"maximco":fechaCreacion < fin})
+     
+     
       if (datos.inicio && fechaCreacion < inicio) {
         return false;
       }
@@ -94,6 +100,9 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
       return true;
     });
+
+    console.log(documentos_filtrados)
+
 
     if (reportes == 0) {
       setSolicitudes_f(solicitudes_filtradas);
