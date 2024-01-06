@@ -42,6 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', function () {
         return Inertia::render('Home');
     })->name('home');
+
     Route::get('/AccessDenied', function () {
         return Inertia::render('AccessDenied');
     })->name('AccessDenied');
@@ -57,7 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/coment', [ComentarioController::class, 'create'])->name('comentario.create');
     Route::post('/coment4', [ComentarioController::class, 'destroy'])->name('comentario.destroy');
 
-    //Funciones de empleados
+    //Funciones de Gestor
     Route::middleware(['checkrole:3'])->group(function () {
         
         Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
@@ -96,6 +97,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
    
 });
+
+
+
+
+
+
+
+
 
 Route::get('/form', function () {
     return Inertia::render('Form/Index');

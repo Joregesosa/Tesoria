@@ -239,7 +239,7 @@ class SolicitudController extends Controller
                 );
             }
 
-            if (isset($request->created_at)) {
+            if ($Solicitud->tipo_id == 1 || $Solicitud->tipo_id == 2) {
                 return redirect('panel')->with('msj', ['success' => 'Bloque actualizado correctamente']);
             }
            

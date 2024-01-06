@@ -5,7 +5,7 @@ const navItems = [
     {
         id: 1,
         icon: "/assets/svg/home.svg",
-        title: "INICIO",
+        title: "Inicio",
         route: route('home'),
         rol: [1,2,3]
     },
@@ -30,7 +30,7 @@ const navItems = [
     {
         id: 5,
         icon: "/assets/svg/file.svg",
-        title: "SOLICITUDES",
+        title: "Solictudes",
         route: route('solicitudes'),
         rol: [2]
     },
@@ -38,7 +38,7 @@ const navItems = [
     {
         id: 6,
         icon: "/assets/svg/user.svg",
-        title: "USUARIOS",
+        title: "Usuarios",
         route:  route('usuarios.index') ,
         rol: [1]
  
@@ -47,7 +47,7 @@ const navItems = [
     {
         id: 7,
         icon: "/assets/svg/database2.svg",
-        title: "REPORTES",
+        title: "Reportes",
         route:  route('reportes'),
 
         rol: [1,3]
@@ -55,7 +55,7 @@ const navItems = [
     {
         id: 8,
         icon: "/assets/svg/board2.svg",
-        title: "DASHBOARD",
+        title: "Dashboard",
         route:  route('dashboard'),
         rol: [1,3]
 
@@ -63,7 +63,7 @@ const navItems = [
     {
         id: 9,
         icon: "/assets/svg/tools.svg",
-        title: "MANTENIMIENTO",
+        title: "Mantenimiento",
         route:  route('empresa.index'),
         rol: [1]
 

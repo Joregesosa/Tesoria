@@ -189,7 +189,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
                                 <label className=' relative inline-flex gap-2 cursor-pointer select-none items-center '>
 
-                                    <span className="whitespace-nowrap">Mostras Completas: </span>
+                                    <span className="whitespace-nowrap">Mostrar Completas: </span>
                                     <input type='checkbox' name='autoSaver' className='sr-only' checked={filtro.todas}
                                         onChange={(e) => setFiltro({ ...filtro, todas: e.target.checked })} />
                                     <span className={` mr-3 flex h-[24px] w-[43px] items-center rounded-full p-1 duration-200  ${filtro.todas ? 'bg-blue-500' : 'bg-[#CCCCCE]'}`} >

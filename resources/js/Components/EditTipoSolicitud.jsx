@@ -87,7 +87,7 @@ export function EditTipoSolicitud({ hideModal, show, msj, tipoSolicitudData, set
 
                     <div className="flex flex-col w-2/5">
                         <label htmlFor="tipo" className="text-xs">
-                            Select Status
+                           Estado
                         </label>
 
                         <select name="status" id="status" className="w-full py-1 px-2 bg-white rounded-md outline-none"
