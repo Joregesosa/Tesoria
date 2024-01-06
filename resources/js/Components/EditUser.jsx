@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function EditUser({ roles, changeRol, hideModal, update, selectedUser, setData, isCliente, msj, data }) {
 
+    console.log(selectedUser)
     return (
     
         
@@ -52,21 +53,19 @@ export default function EditUser({ roles, changeRol, hideModal, update, selected
 
                 <div className="flex flex-col w-2/5">
                         <label htmlFor="tipo" className="text-xs">
-                            Estado
+                            Estadoss
                         </label>
 
                         <select name="status" id="status" className="w-full py-1 px-2 bg-white rounded-md outline-none"
-                            defaultValue={data.status}
+                            defaultValue={selectedUser.status}
                             required
                             onChange={(e) => setData('status', e.target.value)}
                         >
 
-                          
-
-                            <option value={1}>
+                            <option value="1">
                                 Activo
                             </option>
-                            <option value={0}>
+                            <option value="0">
                                 Inactivo
                             </option>
 
