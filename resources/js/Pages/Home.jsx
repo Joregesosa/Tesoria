@@ -28,14 +28,14 @@ export default function Dashboard({ auth }) {
         >
             <Head title="Home" />
 
-            <div className='grid grid-cols-1 md:grid-cols-2 h-[calc(100vh-64px)] overflow-hidden bg-customGray  w-full'>
+            <div className='relative grid grid-cols-1 md:grid-cols-2 h-[calc(100vh-64px)] overflow-hidden bg-customGray  w-full'>
                 <div className='-mt-16 relative flex justify-center w-full h-full'>
                     <div className="absolute w-[15rem] h-[50rem] z-10 left-[-14rem] bottom-[-8rem] bg-[#12a3c2] -rotate-[14deg]"></div> 
 
                     <img className='w-auto h-full object-contain ' src={letra} alt="" />
                 </div>
                 
-                <div className=" absolute opacity-10 top-0 -right-48 w-full md:right-0 md:relative md:opacity-100  flex justify-center h-full bg-customGray" style={estiloEnLinea}>
+                <div className=" absolute opacity-10 top-0 md:-right-48 w-full right-0 md:relative md:opacity-100  flex justify-center h-full bg-customGray" style={estiloEnLinea}>
                     <div className="absolute w-[8%] h-full z-10 -left-2 top-0 bg-customGray "></div>
                     <div className="absolute w-[8%] h-full z-10 -right-2 top-0 bg-customGray "></div>
 
