@@ -50,9 +50,9 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
 
     useEffect(() => {
-        
+
         if (solicitud_id && !open) {
-          
+
             abrir(parseInt(solicitud_id));
         }
     }, [solicitud_id]);
@@ -63,7 +63,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
         const filtered = solicitudes.filter((soli) => {
 
-           
+
             if (filtro.estado && soli.status_id !== filtro.estado) {
                 return false;
             }
@@ -84,15 +84,15 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
     }, [filtro]);
 
     const abrir = (solicitudId) => {
-      
+
         if (open == solicitudId) {
-          
+
             setOpen(0);
             setTimeout(() => setdato(null), 500);
 
 
         } else {
-           
+
             setOpen(solicitudId);
             const solicitudSeleccionada = solicitudes.find(
                 (solicitud) => solicitud.id === solicitudId
@@ -132,7 +132,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
     const submit = (e) => {
         e.preventDefault();
-        
+
 
         post(route("solicitud.update"));
     };
@@ -158,14 +158,16 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                             <input onChange={(e) => setFiltro({ ...filtro, texto: e.target.value })} className="border-none h-full w-full outline-none focus:ring-0" />
 
                         </label>
-                        <div className="cursor-pointer flex items-center" onClick={() => {setVerFiltro(!verFiltro), verFiltro &&  setFiltro({
-                        estado: 0,
-                        todas: false,
-                        texto: filtro.texto,
-                    })}}>
-                            <img className="w-5 h-5" src={`/assets/svg/${verFiltro ? "nofilter.svg":"filter.svg"}`} alt="" />
+                        <div className="cursor-pointer flex items-center" onClick={() => {
+                            setVerFiltro(!verFiltro), verFiltro && setFiltro({
+                                estado: 0,
+                                todas: false,
+                                texto: filtro.texto,
+                            })
+                        }}>
+                            <img className="w-5 h-5" src={`/assets/svg/${verFiltro ? "nofilter.svg" : "filter.svg"}`} alt="" />
                         </div>
-                        <div className={`${verFiltro ? "w-[35rem]":"w-0"} overflow-hidden transition-all duration-500`}>
+                        <div className={`${verFiltro ? "w-[35rem]" : "w-0"} overflow-hidden transition-all duration-500`}>
                             <div className="flex gap-4">
                                 <label className="flex gap-3 items-center"  >
                                     <span className='font-semibold'> Estados:</span>
@@ -176,7 +178,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                         onChange={(e) => setFiltro({ ...filtro, estado: parseInt(e.target.value) })}
                                         name="tipo_id"
                                         id="tipo_id"
-                                        className="p-0 px-2 w-fit rounded-md h-8"
+                                        className="p-0 px-2 w-full rounded-md h-8"
                                     >
                                         <option value={0} select>Todas</option>
                                         {statusList.map((estado) => (
@@ -216,6 +218,10 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                         </ul>
 
                         <div className={`flex flex-col gap-3  ${open ? "w-full md:w-[600px]" : "w-0 opacity-0 "} p-1  md:p-4 bg-gray-200 rounded-md shadow-xl md:ms-4    overflow-hidden transition-all duration-500 `}>
+
+
+
+
                             {dato ? (
 
                                 <>
@@ -241,17 +247,17 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                     </table>
 
 
-                                    <div className="bg-white  py-2 p-4 rounded-md overflow-hidden opacity-100">
-                                        <table className="w-full" >
+                                    <div className="bg-white py-2 p-4 rounded-md overflow-hidden opacity-100">
+                                        <table className="w-full" style={{ width: '100%' }}>
                                             <tbody >
-                                                <tr className="w-fit p-6">
-                                                    <td className="font-bold w-44 py-2">
+                                                  <tr className="w-full p-6">
+                                                    <td className="font-bold py-2 pe-8">
                                                         Número solicitud
                                                     </td>
                                                     <td>{dato.numero}</td>
                                                 </tr>
-                                                <tr className="w-fit">
-                                                    <td className="font-bold w-44 py-2">
+                                                <tr className="w-full">
+                                                    <td className="font-bold  py-2">
                                                         Fecha
                                                     </td>
                                                     <td>
@@ -262,42 +268,46 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                     </td>
                                                 </tr>
 
-                                                <tr className="w-fit">
-                                                    <td className="font-bold w-44 py-2">
+                                                <tr className="w-full">
+                                                    <td className="font-bold py-2">
                                                         Tramite
                                                     </td>
                                                     <td>{dato.tipo.nombre}</td>
-                                                </tr>
+                                                </tr> 
                                                 {auth.user.rol_id !== 2 && (
                                                     <>
-                                                        <tr className="w-fit">
-                                                            <td className="font-bold w-44 py-2">
+                                                         <tr className="w-full">
+                                                            <td className="font-bold  py-2">
                                                                 Nombre empresa
                                                             </td>
                                                             <td>{dato.user.empresa}</td>
                                                         </tr>
-                                                        <tr className="w-fit">
-                                                            <td className="font-bold w-44 py-2">
+                                                        <tr className="w-full">
+                                                            <td className="font-bold py-2">
                                                                 RNC
                                                             </td>
                                                             <td>{dato.user.rnc}</td>
                                                         </tr>
-                                                        <tr className="w-fit">
-                                                            <td className="font-bold w-44 py-2">
+                                                        <tr className="w-full">
+                                                            <td className="font-bold py-2">
                                                                 Télefono
                                                             </td>
                                                             <td>{dato.user.telefono}</td>
-                                                        </tr>
-                                                        <tr className="w-fit">
-                                                            <td className="font-bold w-44 py-2">
+                                                        </tr> 
+                                                        <tr className="w-full">
+                                                            <td className="font-bold  py-2">
                                                                 Correo
                                                             </td>
-                                                            <td>{dato.user.email}</td>
+                                                            <td className="w-full">
+                                                                <span className="block w-per1 md:w-per2 max-w-[450px]  overflow-hidden text-ellipsis rounded-md break-words text-wrap ">
+                                                                    {dato.user.email}
+                                                                </span>
+                                                            </td>
                                                         </tr>
                                                     </>
                                                 )}
-                                                <tr className="w-fit">
-                                                    <td className="font-bold w-44 py-2">
+                                                <tr className="w-full">
+                                                    <td className="font-bold  py-2">
                                                         Estatus
                                                     </td>
                                                     <td className="flex gap-2 py-2">
@@ -310,27 +320,33 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                         </span>)}
                                                     </td>
                                                 </tr>
-                                                <tr className="w-fit">
-                                                    <td className="font-bold w-44 py-2">
+                                                <tr className="w-full">
+                                                    <td className="font-bold py-2">
                                                         Descripcion
                                                     </td>
-                                                    <td>
-                                                        <p className="text-justify ">{dato.descripcion}</p>
+                                                    <td className="w-full">
+                                                        <span className="block w-per1 md:w-per2 max-w-[450px]  overflow-hidden text-ellipsis rounded-md break-words text-wrap  ">
+                                                            gavor realiara unas dasdasjdklasdnhkasjuhikghjakjsdasldnaskldjaskhfabskasndkasdnkas para cocinar en la casa dess mi tia la buala
+                                                            {/* {dato.descripcion} */}
+                                                        </span>
+
                                                     </td>
                                                 </tr>
-                                                <tr className="w-fit">
-                                                    <td className="font-bold w-44 py-2">
+
+
+                                                <tr className="w-full">
+                                                    <td className="font-bold py-2">
                                                         Usuario Asignado
                                                     </td>
                                                     <td>
-                                                        <p className="text-justify">{dato.user_asignado?.name || 'Sin Asignar'}</p>
+                                                        <p className="text-justify block w-full overflow-hidden text-ellipsis">{dato.user_asignado?.name || 'Sin Asignar'}</p>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
-
+                                                    
                                     <div className="flex flex-col w-full border h-92 p-4 py-2 gap-2 rounded-md bg-white">
                                         <span className="font-semibold">Comentarios</span>
                                         <div className="flex flex-col">
@@ -346,6 +362,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                             <div className="flex justify-between w-full gap-5">
                                                 <span className="w-20">Tesoria:</span><input value={comentario} onChange={(e) => setComentario(e.target.value)} type="text" className="h-8 w-full rounded-md" />
                                                 <label onClick={() => post(route("comentario.create", { solicitud_id: dato.id, comentario: comentario }))} className="bg-blue-500 px-2 py-1 rounded-lg font-semibold text-white min-w-fit cursor-pointer"> Agregar</label>
+
                                             </div>}
 
                                         <div className="flex flex-wrap gap-1">
@@ -399,7 +416,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                             ) : null}
 
                                                         </div>
-                                                        <span className=" left-1/2 transform -translate-x-1/2  relative overflow-hidden text-ellipsis whitespace-nowrap rounded-md block w-16 group-hover:bg-gray-200 group-hover:px-1 group-hover:overflow-visible group-hover:w-fit group-hover:z-10">
+                                                        <span className=" left-1/2 transform -translate-x-1/2  relative overflow-hidden text-ellipsis whitespace-nowrap rounded-md block w-16 group-hover:bg-gray-200 group-hover:px-1 group-hover:overflow-visible group-hover:w-full group-hover:z-10">
                                                             {archivo.nombre}
                                                         </span>
 
@@ -434,7 +451,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                             <img onClick={() => handleDownload(archivo)} src="/assets/svg/descargar.svg" alt="" className="z-20 top-10 left-14 w-8 absolute transform -translate-x-1/2 hover:scale-125 " />
                                                         ) : null}
                                                     </div>
-                                                    <span className=" left-1/2 transform -translate-x-1/2  relative overflow-hidden text-ellipsis whitespace-nowrap rounded-md block w-16 group-hover:bg-gray-200 group-hover:px-1 group-hover:overflow-visible group-hover:w-fit group-hover:z-10">
+                                                    <span className=" left-1/2 transform -translate-x-1/2  relative overflow-hidden text-ellipsis whitespace-nowrap rounded-md block w-16 group-hover:bg-gray-200 group-hover:px-1 group-hover:overflow-visible group-hover:w-full group-hover:z-10">
                                                         {archivo.nombre}
                                                     </span>
                                                 </div>

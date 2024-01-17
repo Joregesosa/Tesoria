@@ -22,7 +22,7 @@ export default function Authenticated({ user, header, children ,solicitud_id,cou
                     </header>
                 )}
 
-                <main className="overflow-hidden border-red-400 border-2">{children}</main> 
+                <main >{children}</main> 
             </div>
 
           

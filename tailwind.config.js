@@ -28,6 +28,10 @@ export default {
                 upload: "#57a844",
                 iconssvg: "#cacdd7",
             },
+            width: {
+                'per1': 'calc(100vw - 16rem)',
+                'per2': 'calc(59vw - 291px)',
+            },
         },
     },
 

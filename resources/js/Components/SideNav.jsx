@@ -79,12 +79,12 @@ export default function SideNav({user,isSideOpen,toggleSide}) {
     return (
         <nav className={`flex min-h-full  lef-0  top-[60px] fixed overflow-hidden  z-20 ${isSideOpen  ? 'w-full' : ' w-0'} md:w-28 transition-all duration-500 `}>
             
-            <ul className='flex flex-col bg-darkgray w-3/4  ps-4 md:p-0 md:w-full' onClick={toggleSide}>
+            <ul className='flex flex-col bg-darkgray w-3/4   md:w-full' onClick={toggleSide}>
                    
                 {navItems.map(item => (
                   item.rol.includes(user.rol_id) ?(
-                    <li key={item.id} className={` ${user.rol_id == 2 ? ' h-[15vh]' : ' h-[13vh]'}  `}>
-                        <Link href={item.route} className='w-28 h-full flex flex-row md:flex-col justify-start items-center md:justify-center text-gray-200 hover:bg-nav cursor-pointer text-xs gap-2'>
+                    <li key={item.id} className={`w-full ${user.rol_id == 2 ? ' h-[15vh]' : ' h-[13vh]'}  `}>
+                        <Link href={item.route} className='w-full h-full ps-4 md:p-0 flex flex-row md:flex-col justify-start items-center md:justify-center text-gray-200 hover:bg-nav cursor-pointer text-xs gap-2'>
                             <img src={item.icon} className='w-[6vh] h-[6vh]'   alt='icon' />
 
                             <span className='fit text-center'>
