@@ -189,3 +189,20 @@
 
 
 
+@layer components {
+  .height-filtro{
+    height: 29rem;
+   
+    @media screen and (min-width: 648px) {
+      height: 25rem;
+   }
+
+   
+
+   @media screen and (min-width: 865px) {
+ 
+    height: 15rem;
+   }
+   
+  }
+}

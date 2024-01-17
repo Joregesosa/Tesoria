@@ -743,11 +743,12 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
           </div>
 
           {/* filtros */}
-          <div className={` ${filtro ? "h-60" : "h-12 "}  overflow-hidden transition-all duration-500 mb-4 bg-white p-4 rounded-lg shadow-md`}>
+          <div className={` ${filtro ? "height-filtro" : "h-12"}  overflow-hidden transition-all duration-500 mb-4 bg-white p-4 rounded-lg shadow-md`}>
 
             <button className='border-b-2 w-full text-left text-lg font-medium ' onClick={() => setFiltro(!filtro)}>Filtros</button>
 
-            <div className='flex gap-8 my-3'>
+    <div className='max-w-[700px]'>
+            <div className='flex flex-wrap justify-between gap-2 my-3'>
 
               <label className=" flex flex-col " >
                 <span className='font-semibold'>Fecha de inicio</span>
@@ -783,8 +784,10 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
 
             </div>
+            </div>
 
-            <div className='flex gap-8'>
+            <div className='max-w-[700px]'>
+            <div className='flex flex-wrap justify-between gap-2'>
               <label className="flex  flex-col "  >
                 <span className='font-semibold'> Tipo Solicitudes:</span>
 
@@ -794,7 +797,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
                   onChange={(e) => { setDatos({ ...datos, tipo: parseInt(e.target.value) }), setUltimoClickeado(null) }}
                   name="tipo_id"
                   id="tipo_id"
-                  className="p-0 px-2 w-fit rounded-md h-8"
+                  className="p-0 px-2 w-full rounded-md h-8 max-w-[421px]"
                 >
                   <option value={0} select>Todas</option>
                   {tipo_solicitudes.map((solicitud) => (
@@ -828,7 +831,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
 
             </div>
-
+            </div>
             <div className='flex gap-4 my-3'>
               <button
                 className={`p-2 rounded-md ${ultimoClickeado === 7 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
@@ -888,7 +891,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
           <div className='flex flex-wrap w-full gap-4'>
 
             {/* Grafio por tipo */}
-            <div className=' mb-4 w-[49%] p-4 rounded-lg shadow-md bg-white'>
+            <div className=' mb-4 w-full lg:w-[49%] p-4 rounded-lg shadow-md bg-white'>
 
               <div id='chart_tipo' className=' w-full border-b-2 border-gray-300 '>
               </div>
@@ -901,7 +904,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
             </div>
 
             {/* Grafio por status */}
-            <div className=' mb-4 w-[49%] p-4 rounded-lg shadow-md bg-white'>
+            <div className=' mb-4 w-full lg:w-[49%] p-4 rounded-lg shadow-md bg-white'>
 
               <div id='chart_status' className='w-full border-b-2 border-gray-300 '>
               </div>
@@ -912,7 +915,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
             </div>
 
             {/* Grafio por cliente */}
-            <div className=' mb-4 w-[49%] p-4 rounded-lg shadow-md bg-white'>
+            <div className=' mb-4 w-full lg:w-[49%] p-4 rounded-lg shadow-md bg-white'>
 
               <div id='chart_cliente' className='w-full border-b-2 border-gray-300 '>
               </div>
@@ -924,7 +927,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
 
             {/* Grafio por usuario */}
-            <div className=' mb-4 w-[49%] p-4 rounded-lg shadow-md bg-white'>
+            <div className=' mb-4 w-full lg:w-[49%] p-4 rounded-lg shadow-md bg-white'>
 
               <div id='chart_usuario' className='w-full border-b-2 border-gray-300 '>
               </div>

@@ -7,7 +7,7 @@ import Modal from "@/Components/Modal";
 import Loading from "./Loading";
 import { copyStringIntoBuffer } from "pdf-lib";
 
-export default function NavBar({ user, solicitud_id, countNotificaciones, msj }) {
+export default function NavBar({ toggleSide,user, solicitud_id, countNotificaciones, msj }) {
 
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -83,18 +83,25 @@ export default function NavBar({ user, solicitud_id, countNotificaciones, msj })
 
   };
 
+  
 
   const today = new Date();
   const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`; // Formatea la fecha como dd/mm/yyyy
 
   return (
-    <header className='flex items-center w-full bg-nav fixed top-0 z-10 h-16'>
+    <header className='flex items-center w-full bg-nav fixed top-0 z-30 h-16'>
 
-      <div className='flex items-center w-3/4'>
+      <div className='flex items-center w-3/4 h-full'>
+
+      <button onClick={toggleSide} className="h-full w-12 md:hidden">
+
+      <img src="/assets/svg/menu.svg" className=' h-full p-2  min-w-[3rem] ms-2 hover:bg-darkgray hover:cursor-pointer '   alt='icon' />
+      </button>
+
         <img className='p-4' src={logo} width={120} height={120} alt='logo' />
 
         <label htmlFor="file" onClick={() => setShow(true)} className='flex h-9 px-2 gap-2 bg-upload items-center rounded-lg text-white cursor-pointer'>
-          Cargar documento
+          <span className=" whitespace-break-spacesover text-xs sm:text-base hidden min-[400px]:block">Cargar documento</span>
 
           <input
             accept=".xlsx, .jpeg, .jpg, .png, .docx, .pdf"
@@ -134,7 +141,7 @@ export default function NavBar({ user, solicitud_id, countNotificaciones, msj })
 
       </div>
 
-      <div className='flex justify-end px-10 text-gray-300 '>
+      <div className='flex justify-end md:px-10 text-gray-300 '>
         <Link href={route('notificaciones')} className='relative cursor-pointer'>
 
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
@@ -149,16 +156,16 @@ export default function NavBar({ user, solicitud_id, countNotificaciones, msj })
         </Link>
       </div>
 
-      <div className="hidden sm:flex sm:items-center sm:ml-6">
-        <div className="ml-3 relative">
+      <div className=" sm:flex sm:items-center sm:ml-6">
+        <div className="md:ml-3 relative">
           <Dropdown>
             <Dropdown.Trigger>
               <span className="inline-flex rounded-md">
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-200   hover:text-gray-400 focus:outline-none transition ease-in-out duration-150"
+                  className=" inline-flex items-center  px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-200   hover:text-gray-400 focus:outline-none transition ease-in-out duration-150"
                 >
-                  {user.name}
+                  <span className="hidden sm:block">{user.name}</span>
 
                   <svg
                     className="ml-2 -mr-0.5 h-4 w-4"
