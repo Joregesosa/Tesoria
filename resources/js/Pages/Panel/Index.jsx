@@ -208,16 +208,16 @@ export default function Panel({ auth, msj, clientes }) {
             <Head title="Panel" />
 
             <div className='pb-1'>
-                <div className='bg-white shadow-md h-full mx-5 rounded-md p-2 mt-3 mb-3'>
+                <div className='bg-white shadow-md h-full mx-5 rounded-md p-5 md:p-2 mt-3 mb-3'>
 
                     {(auth.user.rol_id != 2) ?
                         (
-                            <label className='flex w-1/2  m-6 items-center'>
-                                <span className='flex items-center whitespace-nowrap  w-fit h-12 px-2'>Seleccione un cliente</span>
+                            <label className='flex  w-full flex-wrap mb-3 md:m-6 items-center'>
+                                <span className='flex items-center whitespace-nowrap  w-fit  h-12 px-2'>Seleccione un cliente</span>
                                 <select
                                     value={opencliente?.id}
                                     onChange={(e) => cliente(e.target.value)}
-                                    className="w-[calc(100%-3rem)]   rounded-md  h-12   outline-none px-2"
+                                    className=" w-fit min-w-[5rem]  rounded-md  h-12   outline-none px-2"
                                 >
                                     <option value="0">Seleccione el cliente</option>
 
@@ -233,15 +233,15 @@ export default function Panel({ auth, msj, clientes }) {
 
 
                     {(opencliente?.rol_id == 2 && auth.user.rol_id != 2) ?
-                        (<div className=' m-6 mt-0 border-2 w-fit border-black rounded-md p-1  flex gap-2 '>
+                        (<div className='  md:m-6 mt-0 border-2 w-full md:w-fit border-black rounded-md p-1  flex gap-2 flex-col md:flex-row'>
 
                             <div>
-                                <div className="flex items-center ">
+                                <div className="flex items-center justify-between px-2 md:p-0 md:justify-start ">
                                     <div className="font-bold w-44 py-2">Nombre solicitante</div>
                                     <div>{opencliente.name}</div>
                                 </div>
 
-                                <div className="flex items-center ">
+                                <div className="flex items-center justify-between px-2 md:p-0 md:justify-start">
                                     <div className="font-bold w-44 py-2">Nombre empresa</div>
                                     <div>{opencliente.empresa}</div>
 
@@ -249,12 +249,12 @@ export default function Panel({ auth, msj, clientes }) {
                             </div>
 
                             <div>
-                                <div className="flex items-center ">
+                                <div className="flex items-center justify-between px-2 md:p-0 md:justify-start">
                                     <div className="font-bold w-44 py-2">Télefono</div>
                                     <div>{opencliente.telefono}</div>
                                 </div>
 
-                                <div className="flex items-center ">
+                                <div className="flex items-center justify-between px-2 md:p-0 md:justify-start">
                                     <div className="font-bold w-44 py-2">RNC</div>
                                     <div>{opencliente.rnc}</div>
                                 </div>
@@ -269,7 +269,7 @@ export default function Panel({ auth, msj, clientes }) {
 
 
 
-                    <div className="w-[calc(100%-3rem)] h-[calc(100%-3rem)] flex gap-4  m-6 rounded-md  mb-2">
+                    <div className="w-full md:w-[calc(100%-3rem)] h-[calc(100%-3rem)] flex flex-col md:flex-row gap-4 my-3 md:m-6 rounded-md  mb-2">
 
                         <div className="h-full w-full bg-[#f2f2f2]">
                           

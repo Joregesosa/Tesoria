@@ -197,25 +197,26 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
           <div className='flex text-black '>
             <button onClick={() => setReportes(0)}
               className={` rounded-t-2xl cursor-pointer flex items-center gap-2 h-10 p-2 bg-gray-300  ${reportes == 0 ? "bg-white " : ""
-                }  font-semibold text-base `}>
+                }  font-semibold text-base  `}>
               <img src="/assets/svg/export2.svg" width={30} height={30} alt="icon documento" />
-              Solicitudes
+              <span className='truncate'>Solicitudes</span>
+              
             </button>
 
             <button
               onClick={() => setReportes(1)}
               className={`rounded-t-2xl cursor-pointer flex items-center gap-2 h-10 p-2 bg-gray-300 ${reportes == 1 ? "bg-white " : ""
-                }  font-semibold text-base `}>
+                }  font-semibold text-base     `}>
               <img src="/assets/svg/document2.svg" width={30} height={30} alt="icon documento" />
-              Documentos
+              <span className='truncate'>Documentos</span>
             </button>
           </div>
 
           <div className='rounded-tl-none mb-4 bg-white p-4 rounded-lg shadow-md'>
 
 
-
-            <div className='flex gap-8 my-3'>
+            <div className='max-w-[50rem]'>
+            <div className='flex flex-wrap justify-between gap-2 my-3'>
 
               <label className=" flex flex-col " >
                 <span className='font-semibold'>Fecha de inicio</span>
@@ -251,10 +252,11 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
 
 
             </div>
-
+            </div>
 
             {reportes == 0 && (
-              <div className='flex gap-8'>
+               <div className='max-w-[50rem]'>
+              <div className='flex flex-wrap justify-between gap-2'>
                 <label className="flex  flex-col "  >
                   <span className='font-semibold'> Tipo Solicitudes:</span>
 
@@ -264,7 +266,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
                     onChange={(e) => setDatos({ ...datos, tipo: parseInt(e.target.value) })}
                     name="tipo_id"
                     id="tipo_id"
-                    className="p-0 px-2 w-fit rounded-md h-8"
+                    className="p-0 px-2 w-full min-w-[13rem]  rounded-md h-8"
                   >
                     <option value={0} select>Todas</option>
                     {tipo_solicitudes.map((solicitud) => (
@@ -297,6 +299,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
                 </label>
 
 
+              </div>
               </div>
 
             )}
@@ -348,7 +351,7 @@ export default function documentos({ auth, tipo_solicitudes, clientes, estados, 
                           Fecha
                         </th>
                         <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                          Status
+                          Estado
                         </th>
                         <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                           CORREO

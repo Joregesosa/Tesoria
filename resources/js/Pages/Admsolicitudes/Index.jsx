@@ -201,8 +201,8 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                         </div>
                     </div>
 
-                    <div className="flex  gap-16">
-                        <ul className="flex flex-col col gap-4 overflow-hidden overflow-y-scroll  h-full max-h-[740px] p-2 rounded-md pe-8  ">
+                    <div className="flex flex-col gap-4 lg:gap-16 md:flex-row ">
+                        <ul className="md:h-full  flex flex-col col gap-4 overflow-hidden overflow-y-scroll  h-36  max-h-[740px] p-2 rounded-md pe-8 border-gray-500 border-2 md:border-0 ">
 
                             {datos_f?.length ? (datos_f.map((solicitud) => (
                                 <Solicitud
@@ -215,7 +215,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                             ))) : (<h1>No hay Solicitudes</h1>)}
                         </ul>
 
-                        <div className={`flex flex-col gap-3  ${open ? "w-[600px]" : "w-0 opacity-0 "}   p-4 bg-gray-200 rounded-md shadow-xl ms-4    overflow-hidden transition-all duration-500 `}>
+                        <div className={`flex flex-col gap-3  ${open ? "w-full md:w-[600px]" : "w-0 opacity-0 "} p-1  md:p-4 bg-gray-200 rounded-md shadow-xl md:ms-4    overflow-hidden transition-all duration-500 `}>
                             {dato ? (
 
                                 <>
@@ -242,7 +242,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
 
                                     <div className="bg-white  py-2 p-4 rounded-md overflow-hidden opacity-100">
-                                        <table >
+                                        <table className="w-full" >
                                             <tbody >
                                                 <tr className="w-fit p-6">
                                                     <td className="font-bold w-44 py-2">
@@ -315,7 +315,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                         Descripcion
                                                     </td>
                                                     <td>
-                                                        <p className="text-justify">{dato.descripcion}</p>
+                                                        <p className="text-justify ">{dato.descripcion}</p>
                                                     </td>
                                                 </tr>
                                                 <tr className="w-fit">

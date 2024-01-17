@@ -78,12 +78,16 @@ export default function Solicitudes({ auth, datos, msj }) {
             </Modal>
             <div className=" pb-1  ">
             <div className="w-[calc(100%-3rem)] h-[calc(100%-3rem)] bg-[#f2f2f2] m-6 rounded-md flex flex-col gap-10 py-4">
-                <ul className="flex gap-10 p-6 w-fit mx-auto">
+               
+              
+
+                <ul className="grid grid-cols-1 min-[555px]:grid-cols-2  lg:grid-cols-4 md:p-6 w-fit mx-auto">
+
                     <li
                         onClick={() => filtrarPorTipo(1)}
 
-                        className={`cursor-pointer flex items-center gap-3 p-3 w-52 border-2 transition-all duration-500 bg-blue-500 ${esTipo == 1 ? "scale-75 border-black" : ""
-                            } rounded-md text-white font-semibold text-lg `}
+                        className={`cursor-pointer flex items-center gap-3 p-1 md:p-3 m-2 w-11/12 h-14 md:h-20 border-2 transition-all duration-500 bg-blue-500 ${esTipo == 1 ? "scale-75 border-black" : ""
+                            } rounded-md text-white font-semibold text-[80%] md:text-lg `}
 
                     >
                         <img
@@ -98,8 +102,8 @@ export default function Solicitudes({ auth, datos, msj }) {
                     <li
                         onClick={() => filtrarPorTipo(2)}
 
-                        className={` cursor-pointer flex items-center gap-3 p-3 w-52 border-2 bg-[#EAB308] transition-all duration-500 ${esTipo == 2 ? "scale-75 border-black" : ""
-                            } rounded-md text-white font-semibold text-lg `}
+                        className={` cursor-pointer flex items-center gap-3 p-1 md:p-3 m-2 w-11/12 h-14 md:h-20 border-2 bg-[#EAB308] transition-all duration-500 ${esTipo == 2 ? "scale-75 border-black" : ""
+                            } rounded-md text-white font-semibold text-[80%] md:text-lg `}
 
                     >
                         <img
@@ -114,8 +118,8 @@ export default function Solicitudes({ auth, datos, msj }) {
                     <li
                         onClick={() => filtrarPorTipo(3)}
 
-                        className={`cursor-pointer flex items-center gap-3 p-3 w-52 border-2 bg-cyan-500 transition-all duration-500 ${esTipo == 3 ? "scale-75 border-black" : ""
-                            } rounded-md text-white font-semibold text-lg filter`}
+                        className={`cursor-pointer flex items-center gap-3 p-1 md:p-3 m-2 w-11/12 h-14 md:h-20 border-2 bg-cyan-500 transition-all duration-500 ${esTipo == 3 ? "scale-75 border-black" : ""
+                            } rounded-md text-white font-semibold text-[80%] md:text-lg filter`}
 
                     >
                         <img
@@ -130,8 +134,8 @@ export default function Solicitudes({ auth, datos, msj }) {
                     <li
                         onClick={() => filtrarPorTipo(4)}
 
-                        className={`cursor-pointer flex items-center gap-3 p-3 w-52 border-2 bg-blue-800 transition-all duration-500 ${esTipo == 4 ? "scale-75 border-black" : ""
-                            } rounded-md text-white font-semibold text-lg`}
+                        className={`cursor-pointer flex items-center gap-3 p-1 md:p-3 m-2 w-11/12 h-14 md:h-20 border-2 bg-blue-800 transition-all duration-500 ${esTipo == 4 ? "scale-75 border-black" : ""
+                            } rounded-md text-white font-semibold text-[80%] md:text-lg`}
 
                     >
                         <img
@@ -146,17 +150,17 @@ export default function Solicitudes({ auth, datos, msj }) {
 
                 <form
                     onSubmit={submit}
-                    className="flex flex-col mx-24   gap-4 text-textgray"
+                    className="flex flex-col mx-8 md:mx-24   gap-4 text-textgray"
                 >
-                    <label className="flex items-center gap-3"  >
-                        <span className=" text-xl w-60 "> Seleccione servicio</span>
+                    <label className="flex flex-wrap items-center gap-3"  >
+                        <span className=" text-xl w-48 "> Seleccione servicio</span>
                         <select
                             required
                             value={data.tipo_id}
                             onChange={(e) => setData("tipo_id", e.target.value)}
                             name="tipo_id"
                             id="tipo_id"
-                            className=" p-3 w-full bg-white rounded-md outline-none"
+                            className=" p-3 w-full max-w-[30rem] bg-white rounded-md outline-none"
                         >
                             <option defaultValue={""}>Ningun sercicio seleccionado</option>
                             {solicitudes.map((solicitud) => (
@@ -187,7 +191,7 @@ export default function Solicitudes({ auth, datos, msj }) {
 
                             </div>
                    
-                    <button className="border py-1 w-36 rounded-xl bg-gray-300 hover:bg-gray-200 text-textgray self-end justify-end mr-5 mt-5">
+                    <button className="border py-1 w-36 rounded-xl bg-gray-300 hover:bg-gray-200 text-textgray self-center  md:self-end justify-end mr-5 mt-5">
                         Enviar solicitud
                     </button>
                 </form>
