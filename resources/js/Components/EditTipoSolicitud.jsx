@@ -73,7 +73,7 @@ export function EditTipoSolicitud({ hideModal, show, msj, tipoSolicitudData, set
                             onChange={(e) => setData('tipo', e.target.value)}
                         >
 
-                            <option value="">
+                            <option value="" disabled>
                                 Selecionar Categoria
                             </option>
                             {categorySolicitud.map(category => (
@@ -96,7 +96,7 @@ export function EditTipoSolicitud({ hideModal, show, msj, tipoSolicitudData, set
                             onChange={(e) => setData('status', e.target.value)}
                         >
 
-                            <option value="">
+                            <option value="" disabled>
                                 Status
                             </option>
 

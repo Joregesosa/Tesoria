@@ -209,7 +209,7 @@ export default function NavBar({ toggleSide,user, solicitud_id, countNotificacio
               </div>
 
               <form onSubmit={submit} className="flex flex-col w-full gap-4 text-textgray p-4">
-                <div className="flex gap-4 justify-between ">
+                <div className="flex gap-4 flex-col sm:flex-row justify-between ">
                   <label className="text-xs flex flex-col  w-full">
                     {isfactura ? "Factura" : "Solicitud"}
                     <select

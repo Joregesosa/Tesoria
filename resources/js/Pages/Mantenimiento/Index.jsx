@@ -9,6 +9,7 @@ import { NewTipoSolicitud } from '@/Components/NewTipoSolicitud';
 import { SuccessAlert } from '@/Components/SuccessAlert';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, useForm } from "@inertiajs/react";
+import { data } from 'autoprefixer';
 import { useEffect, useState } from 'react';
 
 
@@ -61,13 +62,14 @@ export default function Mantenimiento({ auth, tipoSolicitudes, msj, empresa }) {
 
       })
       setCurrentData(dataList);
+     
     }
   }, [tipoSolicitudes]);
 
   const tbStructure = {
     'Tipo de Solicitud': 'nombre',
     'Categoria': 'categoria',
-    'Status': 'status'
+    'Estado': 'status'
   }
 
   function getTipoSolicitudData(id) {
@@ -129,6 +131,7 @@ export default function Mantenimiento({ auth, tipoSolicitudes, msj, empresa }) {
               onNew={() => setNewTipoSilicitud(true)}
               onUpdate={editModal}
               onDelete={deleteModal}
+            
 
             />
           }

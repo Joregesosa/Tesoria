@@ -11,7 +11,7 @@ export default function Authenticated({ user, header, children ,solicitud_id,cou
    
 
     return (
-        <div className="min-h-screen h-full bg-gray-200">
+        <div className="min-h-screen h-full bg-gray-200 ">
          
             <NavBar toggleSide={() => setSideOpen(!isSideOpen)} user={user} solicitud_id={solicitud_id} countNotificaciones={countNotificaciones}  msj={msj} />
             <SideNav user={user} isSideOpen={isSideOpen} toggleSide={() => setSideOpen(!isSideOpen)}/>
@@ -22,7 +22,7 @@ export default function Authenticated({ user, header, children ,solicitud_id,cou
                     </header>
                 )}
 
-                <main>{children}</main> 
+                <main >{children}</main> 
             </div>
 
           

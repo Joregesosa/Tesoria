@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function Pagination({ data, currentPage, setCurrentPage }) {
-    const maxVisiblePages = 5;
+export function Pagination({ data, currentPage, setCurrentPage,maxVisiblePages }) {
+    
 
     const totalPages = data.length % maxVisiblePages === 0 ?
         data.length / maxVisiblePages :
