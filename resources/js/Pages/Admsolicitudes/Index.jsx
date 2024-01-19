@@ -60,7 +60,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
 
     useEffect(() => {
 
-
+       
         const filtered = solicitudes.filter((soli) => {
 
 
@@ -72,7 +72,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                 return false;
             }
 
-            if (filtro.texto && !JSON.stringify(soli).toLowerCase().includes(filtro.texto)) {
+            if (filtro.texto && !JSON.stringify(soli).toLowerCase().includes(filtro.texto.toLowerCase())) {
                 return false;
             }
 
@@ -180,7 +180,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                         id="tipo_id"
                                         className="p-0 px-2 w-full rounded-md h-8"
                                     >
-                                        <option value={0} select>Todas</option>
+                                        <option value={0} select="true">Todas</option>
                                         {statusList.map((estado) => (
                                             <option key={estado.id} value={estado.id}>
                                                 {estado.nombre}
@@ -326,8 +326,7 @@ export default function admsolicitudes({ auth, tipoSolicitudes, msj, solicitud_i
                                                     </td>
                                                     <td className="w-full">
                                                         <span className="block w-per1 md:w-per2 max-w-[450px]  overflow-hidden text-ellipsis rounded-md break-words text-wrap  ">
-                                                            gavor realiara unas dasdasjdklasdnhkasjuhikghjakjsdasldnaskldjaskhfabskasndkasdnkas para cocinar en la casa dess mi tia la buala
-                                                            {/* {dato.descripcion} */}
+                                                            {dato.descripcion} 
                                                         </span>
 
                                                     </td>
