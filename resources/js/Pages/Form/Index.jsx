@@ -1,15 +1,16 @@
 
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-export default function form({auth}) {
+export default function form({ auth }) {
 
     return (
 
         <AuthenticatedLayout
+            countNotificaciones={auth.countNotificaciones}
             user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">
                 Formulario solicutud de servicio
-                </h2>}
+            </h2>}
         >
             <Head title="Form" />
 
@@ -62,10 +63,10 @@ export default function form({auth}) {
                     <div className="flex flex-col">
 
                         <label htmlFor="coment" className="text-xs">
-                            Comentarios
+                            descripcion
                         </label>
 
-                        <textarea placeholder="Escribe tu comentario" name="coment" id="coment" className="w-full resize-none h-44 p-3 outline-none "></textarea>
+                        <textarea placeholder="Escribe tu descripcion" name="coment" id="coment" className="w-full resize-none h-44 p-3 outline-none "></textarea>
                     </div>
 
 

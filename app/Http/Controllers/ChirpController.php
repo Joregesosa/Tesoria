@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Chirp;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Inertia\Inertia;
 
 class ChirpController extends Controller
@@ -15,7 +14,6 @@ class ChirpController extends Controller
      */
     public function index()
     {
-
 
         return Inertia::render('Chirps/Index', [
             'chirps' => Chirp::with('user:id,name')->latest()->get(),
@@ -61,9 +59,7 @@ class ChirpController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, Chirp $chirp): RedirectResponse
     {
 

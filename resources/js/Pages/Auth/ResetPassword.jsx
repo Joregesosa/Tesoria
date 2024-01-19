@@ -20,6 +20,8 @@ export default function ResetPassword({ token, email }) {
         };
     }, []);
 
+    console.log(errors)
+
     const submit = (e) => {
         e.preventDefault();
 
@@ -81,7 +83,7 @@ export default function ResetPassword({ token, email }) {
 
                 <div className="flex items-center justify-end mt-4">
                     <PrimaryButton className="ml-4" disabled={processing}>
-                        Reset Password
+                    Restablecer la contraseña
                     </PrimaryButton>
                 </div>
             </form>

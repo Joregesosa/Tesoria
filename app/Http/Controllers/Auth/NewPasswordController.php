@@ -38,11 +38,19 @@ class NewPasswordController extends Controller
             'token' => 'required',
             'email' => 'required|email',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            
+            'token' => 'El token es obligatorio.',
+          
+            'email' => 'El correo electrónico debe ser válido.',
+         
+            'password' => 'La contraseña es obligatoria.',
+           
         ]);
 
-        // Here we will attempt to reset the user's password. If it is successful we
-        // will update the password on an actual user model and persist it to the
-        // database. Otherwise we will parse the error and return the response.
+        // Aquí intentaremos restablecer la contraseña del usuario. Si tiene éxito,
+        // actualizaremos la contraseña en un modelo de usuario real y lo guardaremos
+        // en la base de datos. De lo contrario, analizaremos el error y devolveremos la respuesta.
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user) use ($request) {
@@ -55,9 +63,9 @@ class NewPasswordController extends Controller
             }
         );
 
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
+        // Si la contraseña se restableció correctamente, redirigiremos al usuario de vuelta a
+        // la vista autenticada de inicio de la aplicación. Si hay un error, podemos
+        // redirigirlos de vuelta a donde vinieron con su mensaje de error.
         if ($status == Password::PASSWORD_RESET) {
             return redirect()->route('login')->with('status', __($status));
         }
@@ -66,4 +74,7 @@ class NewPasswordController extends Controller
             'email' => [trans($status)],
         ]);
     }
+
+
+       
 }

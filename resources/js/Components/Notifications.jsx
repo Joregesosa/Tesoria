@@ -1,26 +1,36 @@
+import { Link } from '@inertiajs/react'
 import React from 'react'
+import { format } from 'date-fns';
 
-export const Notifications = ({text,conf}) => {
+export const Notifications = ({
+    user,
+    conf,
+    emisor,
+    mensaje,
+    selectNotification,
+    date, }) => {
+        const formattedDate = format(new Date(date),'dd/MM/yyyy hh:mm:ss a')
     return (
-        <li className={`flex w-80 h-24  ${conf? 'bg-orange-100': 'bg-lime-100'} rounded-md`}>
-            <span className={`h-full w-2 ${conf? 'bg-red-600': ' bg-blue-500'} rounded-l-lg`}>
-
-            </span>
-
-            <div className="flex flex-col gap-2 p-2 text-textgray">
-
-                <span>
-                    TESORIA
-                </span>
+      
+        <li onClick={selectNotification} className={`flex w-80 min-h-fit overflow-hidden bg-blue-500 rounded-md cursor-pointer`} >
+            <div className="flex flex-col gap-2 p-2 ms-2 text-textgray w-full bg-orange-100">
+                
+                {(user.rol_id) == 2 ?
+                (<span>
+                    Tesoria
+                </span>) : ( <span>
+                    De: {emisor}
+                </span>)
+            }
+               
 
                 <p className="font-medium text-sm">
-                    Nuevo documento {text} compartido.
+                    {mensaje}
                 </p>
 
                 <span className="text-xs">
-                    18/05/23 03:10:28 p.m
+                   {formattedDate}
                 </span>
-                
             </div>
         </li>
     )
